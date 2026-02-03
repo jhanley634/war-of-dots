@@ -58,6 +58,10 @@ have starting position, color, troops, and vision and border grids
 
 troops and cities paths are controlled by client
 
+Strategy:
+---------
+# TODO - ADD STRATEGY INFO
+
 Controls:
 ---------
 Inputs:
@@ -89,9 +93,6 @@ Clear Paths,   Flushes all pending paths and city_paths without submitting them 
 Key: P,                      
 -
 Toggle Pause,  Toggles the pause state; interrupts event processing and signals the server to pause/unpause.
-
-Strategy:
----------
 
 
 
