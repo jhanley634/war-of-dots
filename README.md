@@ -6,11 +6,20 @@ DESCRIPTION:
 
 Terrain:
 --------
-Water: light blue, speed debuf and attack debuff better vision
-Plains: green
-Forest: dark green, speed debuf and attack debuff worst vision
-hills: light grey, speed debuff and attack buff, buffs vision of troop when on
-mountains: dark grey, can't be traversed
+Water: 
+light blue, speed debuf and attack debuff better vision
+
+Plains: 
+green
+
+Forest: 
+dark green, speed debuf and attack debuff worst vision
+
+hills: 
+light grey, speed debuff and attack buff, buffs vision of troop when on
+
+mountains: 
+dark grey, can't be traversed
 
 Cities:
 -------
