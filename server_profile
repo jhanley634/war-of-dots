@@ -1,0 +1,512 @@
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+16924/16918   71.377    0.004  667.254    0.039 {built-in method time.sleep}
+    18839    0.225    0.000  487.137    0.026 wod_server.py:730(game_logic)
+     18/1    0.000    0.000  312.900  312.900 {built-in method builtins.exec}
+        1    0.000    0.000  312.900  312.900 wod_server.py:1(<module>)
+15947/12460    0.316    0.000  311.403    0.025 simple_socket.py:67(send)
+        1    0.001    0.001  310.931  310.931 wod_server.py:660(run_game)
+15945/3554    1.185    0.000  309.031    0.087 simple_socket.py:76(rcv)
+        2    0.001    0.000  301.910  150.955 threading.py:1372(invoke_excepthook)
+      2/1    0.000    0.000  301.909  301.909 threading.py:1018(_bootstrap)
+      2/1    0.000    0.000  301.909  301.909 threading.py:1058(_bootstrap_inner)
+    18839   14.238    0.001  157.016    0.008 wod_server.py:348(update_troops)
+  1269497   72.511    0.000  115.930    0.000 wod_server.py:58(apply)
+15060/15058    0.094    0.000   31.088    0.002 __init__.py:183(dumps)
+15060/15058    0.073    0.000   30.948    0.002 encoder.py:183(encode)
+15060/15058   30.816    0.002   30.811    0.002 encoder.py:205(iterencode)
+ 70609583   19.359    0.000   22.486    0.000 {built-in method builtins.min}
+ 10332309   11.492    0.000   17.559    0.000 wod_server.py:19(xy_to_dir_dis)
+ 60366363   15.854    0.000   15.854    0.000 {built-in method builtins.max}
+ 67372789   13.772    0.000   13.772    0.000 {built-in method math.sqrt}
+  5122802    7.612    0.000   10.017    0.000 wod_server.py:32(get_grid_value)
+        2    0.000    0.000    9.552    4.776 simple_socket.py:61(accept)
+        2    0.000    0.000    9.552    4.776 socket.py:288(accept)
+  3794299    3.843    0.000    6.619    0.000 wod_server.py:12(dir_dis_to_xy)
+        2    4.528    2.264    4.528    2.264 {method '_accept' of '_socket.socket' objects}
+  1291174    0.805    0.000    3.125    0.000 wod_server.py:381(<lambda>)
+        2    2.731    1.366    2.731    1.366 {built-in method builtins.input}
+ 10332309    2.438    0.000    2.438    0.000 {built-in method math.atan2}
+ 10332309    1.698    0.000    1.698    0.000 {built-in method math.degrees}
+    15056    0.652    0.000    1.608    0.000 wod_server.py:295(draw_info)
+31894/22475    1.620    0.000    1.527    0.000 {method 'sendall' of '_socket.socket' objects}
+  7588598    1.205    0.000    1.205    0.000 {built-in method math.radians}
+    18839    0.671    0.000    1.004    0.000 wod_server.py:582(update_cities)
+   601354    0.779    0.000    0.971    0.000 wod_server.py:341(get_terrain_name)
+  3794299    0.807    0.000    0.807    0.000 {built-in method math.cos}
+  3794299    0.764    0.000    0.764    0.000 {built-in method math.sin}
+   709219    0.625    0.000    0.625    0.000 {method 'index' of 'list' objects}
+31888/6573   28.834    0.001    0.375    0.000 {method 'recv' of '_socket.socket' objects}
+    15944    0.058    0.000    0.340    0.000 __init__.py:299(loads)
+        1    0.000    0.000    0.305    0.305 wod_server.py:646(__init__)
+        1    0.000    0.000    0.261    0.261 wod_server.py:96(__init__)
+        1    0.007    0.007    0.258    0.258 wod_server.py:214(generate_terrain)
+1009236/1009205    0.257    0.000    0.257    0.000 {built-in method builtins.len}
+    15944    0.075    0.000    0.256    0.000 decoder.py:333(decode)
+     4680    0.002    0.000    0.242    0.000 perlin_noise.py:43(__call__)
+     4680    0.023    0.000    0.239    0.000 perlin_noise.py:59(noise)
+   496516    0.230    0.000    0.230    0.000 {built-in method builtins.sum}
+   558857    0.211    0.000    0.211    0.000 {method 'append' of 'list' objects}
+    18720    0.017    0.000    0.207    0.000 rand_vec.py:51(get_weighted_val)
+   601370    0.193    0.000    0.193    0.000 {method 'items' of 'dict' objects}
+   489113    0.161    0.000    0.161    0.000 {built-in method builtins.id}
+    18720    0.030    0.000    0.124    0.000 rand_vec.py:37(weight_to)
+    31887    0.108    0.000    0.108    0.000 {method 'match' of 're.Pattern' objects}
+    31895    0.099    0.000    0.099    0.000 {method 'encode' of 'str' objects}
+      2/1    0.000    0.000    0.095    0.095 threading.py:1001(run)
+    37440    0.047    0.000    0.067    0.000 rand_vec.py:23(dists_to)
+     25/6    0.000    0.000    0.066    0.011 <frozen importlib._bootstrap>:1349(_find_and_load)
+     25/6    0.000    0.000    0.066    0.011 <frozen importlib._bootstrap>:1304(_find_and_load_unlocked)
+     25/6    0.000    0.000    0.063    0.011 <frozen importlib._bootstrap>:911(_load_unlocked)
+     17/6    0.000    0.000    0.063    0.011 <frozen importlib._bootstrap_external>:993(exec_module)
+    54/12    0.000    0.000    0.058    0.005 <frozen importlib._bootstrap>:480(_call_with_frames_removed)
+    15944    0.052    0.000    0.052    0.000 decoder.py:344(raw_decode)
+    37440    0.027    0.000    0.049    0.000 tools.py:50(fade)
+        1    0.005    0.005    0.044    0.044 {built-in method _socket.gethostbyname}
+        2    0.000    0.000    0.041    0.020 {built-in method builtins.__import__}
+        1    0.000    0.000    0.039    0.039 __init__.py:71(search_function)
+       25    0.000    0.000    0.038    0.002 <frozen importlib._bootstrap>:806(module_from_spec)
+        1    0.000    0.000    0.038    0.038 idna.py:1(<module>)
+        3    0.000    0.000    0.037    0.012 <frozen importlib._bootstrap_external>:1291(create_module)
+        3    0.037    0.012    0.037    0.012 {built-in method _imp.create_dynamic}
+    56205    0.037    0.000    0.037    0.000 {built-in method builtins.isinstance}
+        1    0.000    0.000    0.035    0.035 stringprep.py:1(<module>)
+    31887    0.032    0.000    0.032    0.000 {method 'decode' of 'bytes' objects}
+    18786    0.021    0.000    0.032    0.000 tools.py:8(dot)
+    18893    0.030    0.000    0.030    0.000 {built-in method builtins.all}
+   112320    0.022    0.000    0.022    0.000 {built-in method math.pow}
+   112320    0.020    0.000    0.020    0.000 rand_vec.py:33(<genexpr>)
+    37676    0.018    0.000    0.018    0.000 {method 'reverse' of 'list' objects}
+    17325    0.018    0.000    0.018    0.000 {method 'startswith' of 'str' objects}
+      2/1    0.000    0.000    0.017    0.017 wod_server.py:693(handle_player)
+    15061    0.017    0.000    0.017    0.000 encoder.py:105(__init__)
+    31887    0.015    0.000    0.015    0.000 {method 'end' of 're.Match' objects}
+    31915    0.015    0.000    0.015    0.000 {method 'extend' of 'list' objects}
+    15943    0.013    0.000    0.013    0.000 {method 'join' of 'bytes' objects}
+       17    0.000    0.000    0.012    0.001 <frozen importlib._bootstrap_external>:1066(get_code)
+    18839    0.011    0.000    0.011    0.000 {built-in method time.perf_counter}
+        2    0.000    0.000    0.011    0.006 __init__.py:1(<module>)
+        2    0.000    0.000    0.010    0.005 threading.py:975(start)
+        2    0.000    0.000    0.010    0.005 threading.py:637(wait)
+        1    0.000    0.000    0.009    0.009 simple_socket.py:1(<module>)
+    15352    0.009    0.000    0.009    0.000 {method 'join' of 'str' objects}
+       17    0.000    0.000    0.008    0.000 <frozen importlib._bootstrap_external>:1187(get_data)
+        1    0.000    0.000    0.008    0.008 socket.py:1(<module>)
+       25    0.000    0.000    0.007    0.000 <frozen importlib._bootstrap>:1240(_find_spec)
+       20    0.000    0.000    0.007    0.000 <frozen importlib._bootstrap_external>:1524(find_spec)
+       20    0.000    0.000    0.007    0.000 <frozen importlib._bootstrap_external>:1495(_get_spec)
+       17    0.007    0.000    0.007    0.000 {built-in method _io.open_code}
+    42590    0.007    0.000    0.007    0.000 {built-in method builtins.abs}
+       52    0.000    0.000    0.006    0.000 <frozen importlib._bootstrap_external>:1597(find_spec)
+    18720    0.005    0.000    0.005    0.000 {built-in method _functools.reduce}
+        1    0.000    0.000    0.005    0.005 perlin_noise.py:1(<module>)
+     2340    0.004    0.000    0.005    0.000 wod_server.py:215(elevation_bias)
+       97    0.000    0.000    0.004    0.000 <frozen importlib._bootstrap_external>:140(_path_stat)
+       97    0.004    0.000    0.004    0.000 {built-in method nt.stat}
+    18720    0.003    0.000    0.003    0.000 {built-in method math.floor}
+       66    0.000    0.000    0.003    0.000 perlin_noise.py:113(get_from_cache_of_create_new)
+        2    0.003    0.001    0.003    0.001 {built-in method _thread._excepthook}
+      253    0.002    0.000    0.002    0.000 <frozen importlib._bootstrap_external>:96(_path_join)
+       66    0.000    0.000    0.002    0.000 rand_vec.py:13(__init__)
+        1    0.000    0.000    0.002    0.002 decoder.py:1(<module>)
+        1    0.001    0.001    0.002    0.002 wod_server.py:285(generate_default_vision)
+        8    0.000    0.000    0.002    0.000 __init__.py:226(compile)
+        8    0.000    0.000    0.002    0.000 __init__.py:280(_compile)
+       66    0.000    0.000    0.002    0.000 tools.py:29(sample_vector)
+        4    0.000    0.000    0.002    0.000 enum.py:918(_convert_)
+       17    0.000    0.000    0.002    0.000 <frozen importlib._bootstrap_external>:755(_compile_bytecode)
+        8    0.000    0.000    0.002    0.000 _compiler.py:745(compile)
+        2    0.000    0.000    0.002    0.001 <frozen importlib._bootstrap>:1390(_handle_fromlist)
+       17    0.002    0.000    0.002    0.000 {built-in method marshal.loads}
+        1    0.000    0.000    0.001    0.001 random.py:1(<module>)
+        1    0.000    0.000    0.001    0.001 selectors.py:1(<module>)
+        1    0.000    0.000    0.001    0.001 rand_vec.py:1(<module>)
+       17    0.001    0.000    0.001    0.000 {method 'read' of '_io.BufferedReader' objects}
+       40    0.000    0.000    0.001    0.000 {built-in method builtins.__build_class__}
+        3    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:1299(exec_module)
+        3    0.001    0.000    0.001    0.000 {built-in method _imp.exec_dynamic}
+       26    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:150(_path_is_mode_type)
+       24    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:159(_path_isfile)
+        8    0.000    0.000    0.001    0.000 _compiler.py:578(_code)
+        1    0.000    0.000    0.001    0.001 scanner.py:1(<module>)
+        6    0.001    0.000    0.001    0.000 {built-in method builtins.print}
+      236    0.000    0.000    0.001    0.000 random.py:291(randrange)
+       34    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:486(cache_from_source)
+       25    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap>:416(__enter__)
+        8    0.000    0.000    0.001    0.000 _parser.py:969(parse)
+       25    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap>:733(_init_module_attrs)
+     15/8    0.000    0.000    0.001    0.000 _parser.py:452(_parse_sub)
+        4    0.000    0.000    0.001    0.000 enum.py:1707(convert_class)
+     17/8    0.000    0.000    0.001    0.000 _parser.py:512(_parse)
+       66    0.000    0.000    0.001    0.000 random.py:173(getstate)
+    26/23    0.000    0.000    0.001    0.000 typing.py:392(inner)
+       17    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:1206(path_stats)
+       67    0.000    0.000    0.001    0.000 random.py:135(seed)
+       66    0.001    0.000    0.001    0.000 {function Random.getstate at 0x000001BB672AC680}
+       37    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap>:632(cached)
+        1    0.000    0.000    0.001    0.001 simple_socket.py:49(start)
+       20    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:615(_get_cached)
+     11/8    0.000    0.000    0.001    0.000 typing.py:515(__getitem__)
+        1    0.000    0.000    0.001    0.001 encoder.py:1(<module>)
+       27    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap>:304(acquire)
+     28/8    0.000    0.000    0.001    0.000 _compiler.py:37(_compile)
+       17    0.001    0.000    0.001    0.000 {method '__exit__' of '_io._IOBase' objects}
+      168    0.000    0.000    0.000    0.000 random.py:332(randint)
+       17    0.000    0.000    0.000    0.000 _compiler.py:243(_optimize_charset)
+        8    0.000    0.000    0.000    0.000 typing.py:694(Union)
+        3    0.000    0.000    0.000    0.000 socket.py:221(__init__)
+      583    0.000    0.000    0.000    0.000 {method 'pop' of 'list' objects}
+       63    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1473(_path_importer_cache)
+       67    0.000    0.000    0.000    0.000 {function Random.seed at 0x000001BB672AC5E0}
+        6    0.000    0.000    0.000    0.000 wod_server.py:26(__init__)
+      236    0.000    0.000    0.000    0.000 random.py:242(_randbelow_with_getrandbits)
+        8    0.000    0.000    0.000    0.000 _compiler.py:516(_compile_info)
+        1    0.000    0.000    0.000    0.000 perlin_noise.py:13(PerlinNoise)
+        2    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1460(_path_hooks)
+       66    0.000    0.000    0.000    0.000 random.py:177(setstate)
+        1    0.000    0.000    0.000    0.000 threading.py:1(<module>)
+       11    0.000    0.000    0.000    0.000 typing.py:1269(__init__)
+        1    0.000    0.000    0.000    0.000 tools.py:1(<module>)
+       66    0.000    0.000    0.000    0.000 tools.py:71(hasher)
+        2    0.000    0.000    0.000    0.000 wod_server.py:636(__init__)
+       35    0.000    0.000    0.000    0.000 <frozen codecs>:319(decode)
+       27    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:426(_get_module_lock)
+      945    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
+       20    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1592(_get_spec)
+       66    0.000    0.000    0.000    0.000 {function Random.setstate at 0x000001BB672AC4A0}
+       27    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:162(__enter__)
+        2    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1648(_fill_cache)
+        2    0.000    0.000    0.000    0.000 {built-in method _thread.start_new_thread}
+       20    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:806(spec_from_file_location)
+       71    0.000    0.000    0.000    0.000 {built-in method __new__ of type object at 0x00007FFCD65D98F0}
+       34    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:132(_path_split)
+        2    0.000    0.000    0.000    0.000 {built-in method nt.listdir}
+      793    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+        3    0.000    0.000    0.000    0.000 typing.py:747(Optional)
+        3    0.000    0.000    0.000    0.000 threading.py:884(__init__)
+      227    0.000    0.000    0.000    0.000 socket.py:89(<lambda>)
+      906    0.000    0.000    0.000    0.000 {method 'isupper' of 'str' objects}
+      236    0.000    0.000    0.000    0.000 wod_server.py:265(<genexpr>)
+       35    0.000    0.000    0.000    0.000 {built-in method _codecs.utf_8_decode}
+       27    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:124(setdefault)
+      226    0.000    0.000    0.000    0.000 socket.py:84(<lambda>)
+      228    0.000    0.000    0.000    0.000 socket.py:94(<lambda>)
+      225    0.000    0.000    0.000    0.000 socket.py:79(<lambda>)
+        2    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1689(path_hook_for_FileFinder)
+        2    0.000    0.000    0.000    0.000 threading.py:323(wait)
+      132    0.000    0.000    0.000    0.000 random.py:494(uniform)
+        2    0.000    0.000    0.000    0.000 <frozen zipimport>:64(__init__)
+        1    0.000    0.000    0.000    0.000 __init__.py:355(namedtuple)
+       25    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:232(__init__)
+       22    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:185(_path_abspath)
+       25    0.000    0.000    0.000    0.000 __init__.py:101(find_spec)
+       72    0.000    0.000    0.000    0.000 typing.py:1215(__setattr__)
+       25    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:420(__exit__)
+       16    0.000    0.000    0.000    0.000 enum.py:1561(__and__)
+       22    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:172(_path_isabs)
+       27    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:372(release)
+       28    0.000    0.000    0.000    0.000 typing.py:175(_type_check)
+        6    0.000    0.000    0.000    0.000 <frozen abc>:105(__new__)
+        2    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:164(_path_isdir)
+      280    0.000    0.000    0.000    0.000 {built-in method builtins.getattr}
+       24    0.000    0.000    0.000    0.000 enum.py:720(__call__)
+      708    0.000    0.000    0.000    0.000 {built-in method _operator.index}
+        4    0.000    0.000    0.000    0.000 enum.py:528(__new__)
+       11    0.000    0.000    0.000    0.000 typing.py:262(_collect_parameters)
+       25    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:982(find_spec)
+        1    0.000    0.000    0.000    0.000 {method 'bind' of '_socket.socket' objects}
+        1    0.000    0.000    0.000    0.000 bisect.py:1(<module>)
+        3    0.000    0.000    0.000    0.000 threading.py:616(set)
+       17    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:670(_classify_pyc)
+       30    0.000    0.000    0.000    0.000 typing.py:730(<genexpr>)
+       11    0.000    0.000    0.000    0.000 typing.py:1174(__init__)
+        1    0.000    0.000    0.000    0.000 decoder.py:31(__init__)
+      405    0.000    0.000    0.000    0.000 {method 'getrandbits' of '_random.Random' objects}
+       95    0.000    0.000    0.000    0.000 typing.py:1161(_is_dunder)
+        1    0.000    0.000    0.000    0.000 threading.py:1441(__init__)
+        4    0.000    0.000    0.000    0.000 enum.py:1550(__or__)
+      184    0.000    0.000    0.000    0.000 {built-in method builtins.hasattr}
+      132    0.000    0.000    0.000    0.000 _parser.py:168(__getitem__)
+       48    0.000    0.000    0.000    0.000 {built-in method builtins.setattr}
+        3    0.000    0.000    0.000    0.000 threading.py:1045(_set_tstate_lock)
+      276    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:491(_verbose_message)
+       31    0.000    0.000    0.000    0.000 {built-in method _thread.allocate_lock}
+        1    0.000    0.000    0.000    0.000 simple_socket.py:55(lsn)
+       24    0.000    0.000    0.000    0.000 enum.py:1128(__new__)
+       51    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:84(_unpack_uint32)
+       60    0.000    0.000    0.000    0.000 enum.py:1543(_get_value)
+      102    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:134(<genexpr>)
+      132    0.000    0.000    0.000    0.000 {method 'random' of '_random.Random' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.eval}
+    34/14    0.000    0.000    0.000    0.000 _parser.py:178(getwidth)
+       45    0.000    0.000    0.000    0.000 enum.py:849(__setattr__)
+        7    0.000    0.000    0.000    0.000 _compiler.py:391(_mk_bitmap)
+        1    0.000    0.000    0.000    0.000 {method 'listen' of '_socket.socket' objects}
+       17    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:703(_validate_timestamp_pyc)
+       96    0.000    0.000    0.000    0.000 _parser.py:261(get)
+        1    0.000    0.000    0.000    0.000 {built-in method _socket.gethostname}
+    14/10    0.000    0.000    0.000    0.000 {method 'acquire' of '_thread.lock' objects}
+        3    0.000    0.000    0.000    0.000 threading.py:588(__init__)
+        3    0.000    0.000    0.000    0.000 threading.py:424(notify_all)
+        5    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:989(create_module)
+       27    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:74(__new__)
+        5    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:997(exec_module)
+       20    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1128(find_spec)
+      141    0.000    0.000    0.000    0.000 {method 'rpartition' of 'str' objects}
+        3    0.000    0.000    0.000    0.000 typing.py:1485(copy_with)
+        2    0.000    0.000    0.000    0.000 typing.py:1575(__getitem__)
+       90    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1226(__exit__)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+       36    0.000    0.000    0.000    0.000 wod_server.py:618(__init__)
+        2    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:463(_lock_unlock_module)
+       25    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:445(cb)
+       50    0.000    0.000    0.000    0.000 {method 'format' of 'str' objects}
+      238    0.000    0.000    0.000    0.000 {method 'bit_length' of 'int' objects}
+       90    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1222(__enter__)
+        5    0.000    0.000    0.000    0.000 {built-in method _imp.create_builtin}
+        5    0.000    0.000    0.000    0.000 {built-in method _imp.exec_builtin}
+        3    0.000    0.000    0.000    0.000 threading.py:394(notify)
+       23    0.000    0.000    0.000    0.000 typing.py:1205(__getattr__)
+        2    0.000    0.000    0.000    0.000 socket.py:517(family)
+       25    0.000    0.000    0.000    0.000 {built-in method _imp.is_builtin}
+        8    0.000    0.000    0.000    0.000 typing.py:345(_remove_dups_flatten)
+        2    0.000    0.000    0.000    0.000 enum.py:1413(_missing_)
+        6    0.000    0.000    0.000    0.000 _parser.py:98(closegroup)
+        2    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1571(__init__)
+        1    0.000    0.000    0.000    0.000 random.py:126(__init__)
+        1    0.000    0.000    0.000    0.000 <frozen os>:44(_get_exports_list)
+      136    0.000    0.000    0.000    0.000 _parser.py:240(__next)
+      106    0.000    0.000    0.000    0.000 {method 'get' of 'dict' objects}
+       27    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:79(__init__)
+       27    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:82(remove)
+        4    0.000    0.000    0.000    0.000 socket.py:100(_intenum_converter)
+       17    0.000    0.000    0.000    0.000 _compiler.py:216(_compile_charset)
+       10    0.000    0.000    0.000    0.000 <frozen codecs>:309(__init__)
+       16    0.000    0.000    0.000    0.000 _parser.py:312(_class_escape)
+       52    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:67(_relax_case)
+      142    0.000    0.000    0.000    0.000 {built-in method _imp.acquire_lock}
+        1    0.000    0.000    0.000    0.000 rand_vec.py:10(RandVec)
+        2    0.000    0.000    0.000    0.000 perlin_noise.py:19(__init__)
+       31    0.000    0.000    0.000    0.000 enum.py:38(_is_descriptor)
+        3    0.000    0.000    0.000    0.000 threading.py:277(__init__)
+      100    0.000    0.000    0.000    0.000 _parser.py:256(match)
+       34    0.000    0.000    0.000    0.000 {method 'copy' of 'list' objects}
+      142    0.000    0.000    0.000    0.000 {built-in method _imp.release_lock}
+       69    0.000    0.000    0.000    0.000 {method 'find' of 'bytearray' objects}
+       69    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
+       17    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:647(_check_name_wrapper)
+        1    0.000    0.000    0.000    0.000 typing.py:1476(__getitem__)
+       22    0.000    0.000    0.000    0.000 {built-in method nt._path_splitroot}
+       31    0.000    0.000    0.000    0.000 enum.py:79(_is_private)
+        5    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:662(spec_from_loader)
+       27    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:645(parent)
+       20    0.000    0.000    0.000    0.000 {built-in method _imp.find_frozen}
+       39    0.000    0.000    0.000    0.000 enum.py:48(_is_dunder)
+       57    0.000    0.000    0.000    0.000 _parser.py:164(__len__)
+       27    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:173(__exit__)
+       46    0.000    0.000    0.000    0.000 _parser.py:293(tell)
+        2    0.000    0.000    0.000    0.000 {method 'setsockopt' of '_socket.socket' objects}
+       14    0.000    0.000    0.000    0.000 _parser.py:449(_uniq)
+       18    0.000    0.000    0.000    0.000 {built-in method builtins.locals}
+        3    0.000    0.000    0.000    0.000 threading.py:857(_maintain_shutdown_locks)
+       17    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:48(_new_module)
+        7    0.000    0.000    0.000    0.000 enum.py:1403(_iter_member_by_def_)
+       31    0.000    0.000    0.000    0.000 types.py:192(__init__)
+       61    0.000    0.000    0.000    0.000 {method '__exit__' of '_thread.RLock' objects}
+        4    0.000    0.000    0.000    0.000 {method 'release' of '_thread.lock' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.dir}
+        1    0.000    0.000    0.000    0.000 __init__.py:43(normalize_encoding)
+       10    0.000    0.000    0.000    0.000 _compiler.py:403(_simple)
+       28    0.000    0.000    0.000    0.000 typing.py:166(_type_convert)
+       61    0.000    0.000    0.000    0.000 {built-in method _thread.get_ident}
+     10/7    0.000    0.000    0.000    0.000 _compiler.py:441(_get_literal_prefix)
+        6    0.000    0.000    0.000    0.000 {built-in method _abc._abc_init}
+        4    0.000    0.000    0.000    0.000 {built-in method builtins.sorted}
+        3    0.000    0.000    0.000    0.000 threading.py:1356(_make_invoke_excepthook)
+        5    0.000    0.000    0.000    0.000 threading.py:299(__enter__)
+       13    0.000    0.000    0.000    0.000 {built-in method nt.getcwd}
+        4    0.000    0.000    0.000    0.000 {method 'sort' of 'list' objects}
+       33    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}
+        3    0.000    0.000    0.000    0.000 {built-in method _thread._set_sentinel}
+       27    0.000    0.000    0.000    0.000 _parser.py:176(append)
+        1    0.000    0.000    0.000    0.000 random.py:110(Random)
+       22    0.000    0.000    0.000    0.000 {built-in method fromkeys}
+        2    0.000    0.000    0.000    0.000 _compiler.py:396(_bytes_to_codes)
+       31    0.000    0.000    0.000    0.000 enum.py:59(_is_sunder)
+       51    0.000    0.000    0.000    0.000 {built-in method from_bytes}
+        2    0.000    0.000    0.000    0.000 threading.py:1108(_delete)
+        3    0.000    0.000    0.000    0.000 _weakrefset.py:85(add)
+       54    0.000    0.000    0.000    0.000 {built-in method nt.fspath}
+        8    0.000    0.000    0.000    0.000 _parser.py:231(__init__)
+        1    0.000    0.000    0.000    0.000 functools.py:521(decorating_function)
+       53    0.000    0.000    0.000    0.000 {method 'get' of 'mappingproxy' objects}
+        2    0.000    0.000    0.000    0.000 wod_server.py:334(get_terrain_info)
+       35    0.000    0.000    0.000    0.000 <frozen codecs>:331(getstate)
+        6    0.000    0.000    0.000    0.000 _parser.py:86(opengroup)
+        2    0.000    0.000    0.000    0.000 socket.py:523(type)
+       25    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+       28    0.000    0.000    0.000    0.000 _parser.py:83(groups)
+       27    0.000    0.000    0.000    0.000 {built-in method _weakref._remove_dead_weakref}
+        5    0.000    0.000    0.000    0.000 threading.py:314(_is_owned)
+        1    0.000    0.000    0.000    0.000 threading.py:873(Thread)
+        5    0.000    0.000    0.000    0.000 {method '__enter__' of '_thread.lock' objects}
+        8    0.000    0.000    0.000    0.000 typing.py:317(_deduplicate)
+        7    0.000    0.000    0.000    0.000 enum.py:1393(_iter_member_by_value_)
+        7    0.000    0.000    0.000    0.000 _compiler.py:472(_get_charset_prefix)
+        1    0.000    0.000    0.000    0.000 functools.py:35(update_wrapper)
+        1    0.000    0.000    0.000    0.000 constants.py:1(<module>)
+       25    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:599(__init__)
+       27    0.000    0.000    0.000    0.000 {method 'remove' of 'list' objects}
+       10    0.000    0.000    0.000    0.000 wod_server.py:627(__init__)
+        5    0.000    0.000    0.000    0.000 threading.py:302(__exit__)
+        1    0.000    0.000    0.000    0.000 idna.py:155(encode)
+        2    0.000    0.000    0.000    0.000 threading.py:839(_newname)
+       21    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}
+        1    0.000    0.000    0.000    0.000 socket.py:215(socket)
+       17    0.000    0.000    0.000    0.000 typing.py:1279(__eq__)
+       16    0.000    0.000    0.000    0.000 _compiler.py:575(isstring)
+       16    0.000    0.000    0.000    0.000 typing.py:1592(__eq__)
+       10    0.000    0.000    0.000    0.000 wod_server.py:150(<lambda>)
+       17    0.000    0.000    0.000    0.000 {built-in method _imp._fix_co_filename}
+        1    0.000    0.000    0.000    0.000 _weakrefset.py:39(_remove)
+        2    0.000    0.000    0.000    0.000 threading.py:308(_release_save)
+        5    0.000    0.000    0.000    0.000 {method 'update' of 'dict' objects}
+        5    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:501(_requires_builtin_wrapper)
+       34    0.000    0.000    0.000    0.000 {method 'setdefault' of 'dict' objects}
+        4    0.000    0.000    0.000    0.000 _parser.py:265(getwhile)
+        8    0.000    0.000    0.000    0.000 {built-in method _sre.compile}
+        2    0.000    0.000    0.000    0.000 {built-in method sys.exc_info}
+        4    0.000    0.000    0.000    0.000 typing.py:1581(<genexpr>)
+       40    0.000    0.000    0.000    0.000 typing.py:1273(<genexpr>)
+        1    0.000    0.000    0.000    0.000 idna.py:308(getregentry)
+       11    0.000    0.000    0.000    0.000 _parser.py:172(__setitem__)
+       10    0.000    0.000    0.000    0.000 wod_server.py:133(<lambda>)
+       14    0.000    0.000    0.000    0.000 wod_server.py:244(within_edges)
+        2    0.000    0.000    0.000    0.000 threading.py:1485(current_thread)
+       25    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:412(__init__)
+        8    0.000    0.000    0.000    0.000 _parser.py:953(fix_flags)
+       29    0.000    0.000    0.000    0.000 _parser.py:113(__init__)
+       33    0.000    0.000    0.000    0.000 {built-in method builtins.ord}
+        2    0.000    0.000    0.000    0.000 threading.py:311(_acquire_restore)
+        3    0.000    0.000    0.000    0.000 threading.py:1038(_set_ident)
+        7    0.000    0.000    0.000    0.000 {method 'translate' of 'bytearray' objects}
+       31    0.000    0.000    0.000    0.000 enum.py:241(__set_name__)
+       10    0.000    0.000    0.000    0.000 wod_server.py:138(<lambda>)
+       10    0.000    0.000    0.000    0.000 <frozen codecs>:260(__init__)
+       31    0.000    0.000    0.000    0.000 enum.py:941(<lambda>)
+       27    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:158(__init__)
+        1    0.000    0.000    0.000    0.000 selectors.py:80(BaseSelector)
+        1    0.000    0.000    0.000    0.000 threading.py:670(Barrier)
+        1    0.000    0.000    0.000    0.000 decoder.py:285(__init__)
+        5    0.000    0.000    0.000    0.000 threading.py:1236(daemon)
+       21    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
+        4    0.000    0.000    0.000    0.000 typing.py:1285(__hash__)
+        3    0.000    0.000    0.000    0.000 threading.py:1042(_set_native_id)
+        8    0.000    0.000    0.000    0.000 {method '__exit__' of '_thread.lock' objects}
+        3    0.000    0.000    0.000    0.000 {method 'difference_update' of 'set' objects}
+        1    0.000    0.000    0.000    0.000 {method 'count' of 'str' objects}
+       31    0.000    0.000    0.000    0.000 enum.py:1184(__init__)
+        3    0.000    0.000    0.000    0.000 typing.py:1600(__hash__)
+        2    0.000    0.000    0.000    0.000 {method 'tolist' of 'memoryview' objects}
+       16    0.000    0.000    0.000    0.000 enum.py:93(_is_single_bit)
+        7    0.000    0.000    0.000    0.000 enum.py:117(_iter_bits_lsb)
+        1    0.000    0.000    0.000    0.000 threading.py:265(Condition)
+       17    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1157(__init__)
+       32    0.000    0.000    0.000    0.000 {built-in method builtins.chr}
+        8    0.000    0.000    0.000    0.000 {built-in method builtins.issubclass}
+       16    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1577(<genexpr>)
+        2    0.000    0.000    0.000    0.000 typing.py:1481(<genexpr>)
+        1    0.000    0.000    0.000    0.000 socket.py:677(SocketIO)
+       18    0.000    0.000    0.000    0.000 enum.py:819(<genexpr>)
+       12    0.000    0.000    0.000    0.000 _compiler.py:31(_combine_flags)
+       25    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:653(has_location)
+        1    0.000    0.000    0.000    0.000 {built-in method math.exp}
+        4    0.000    0.000    0.000    0.000 enum.py:202(__get__)
+        1    0.000    0.000    0.000    0.000 _parser.py:372(_escape)
+       17    0.000    0.000    0.000    0.000 _compiler.py:433(_get_iscased)
+        1    0.000    0.000    0.000    0.000 {method 'split' of 'bytes' objects}
+       11    0.000    0.000    0.000    0.000 {method 'partition' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 threading.py:124(RLock)
+        1    0.000    0.000    0.000    0.000 _weakrefset.py:37(__init__)
+        1    0.000    0.000    0.000    0.000 wod_server.py:645(Game)
+        8    0.000    0.000    0.000    0.000 _parser.py:77(__init__)
+       17    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1182(get_filename)
+       17    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:990(create_module)
+       10    0.000    0.000    0.000    0.000 wod_server.py:129(<lambda>)
+       18    0.000    0.000    0.000    0.000 __init__.py:108(<lambda>)
+        4    0.000    0.000    0.000    0.000 enum.py:827(__members__)
+        1    0.000    0.000    0.000    0.000 random.py:222(__init_subclass__)
+        2    0.000    0.000    0.000    0.000 threading.py:1182(name)
+        1    0.000    0.000    0.000    0.000 <frozen codecs>:94(__new__)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1280(__init__)
+        4    0.000    0.000    0.000    0.000 selectors.py:588(_can_use)
+        2    0.000    0.000    0.000    0.000 {method 'append' of 'collections.deque' objects}
+       10    0.000    0.000    0.000    0.000 wod_server.py:130(<lambda>)
+        1    0.000    0.000    0.000    0.000 wod_server.py:95(Environment)
+        1    0.000    0.000    0.000    0.000 threading.py:137(_RLock)
+        4    0.000    0.000    0.000    0.000 {method 'isalnum' of 'str' objects}
+       10    0.000    0.000    0.000    0.000 wod_server.py:141(<lambda>)
+        2    0.000    0.000    0.000    0.000 {method 'remove' of 'collections.deque' objects}
+        1    0.000    0.000    0.000    0.000 simple_socket.py:9(Client)
+        1    0.000    0.000    0.000    0.000 selectors.py:206(_BaseSelectorImpl)
+       10    0.000    0.000    0.000    0.000 wod_server.py:143(<lambda>)
+        1    0.000    0.000    0.000    0.000 selectors.py:290(SelectSelector)
+        1    0.000    0.000    0.000    0.000 decoder.py:255(JSONDecoder)
+        3    0.000    0.000    0.000    0.000 {method 'locked' of '_thread.lock' objects}
+        5    0.000    0.000    0.000    0.000 {built-in method sys.intern}
+        2    0.000    0.000    0.000    0.000 enum.py:815(__iter__)
+        4    0.000    0.000    0.000    0.000 enum.py:1691(_simple_enum)
+        1    0.000    0.000    0.000    0.000 simple_socket.py:44(Server)
+        1    0.000    0.000    0.000    0.000 encoder.py:74(JSONEncoder)
+       10    0.000    0.000    0.000    0.000 wod_server.py:146(<lambda>)
+        1    0.000    0.000    0.000    0.000 selectors.py:341(_PollLikeSelector)
+        1    0.000    0.000    0.000    0.000 random.py:876(SystemRandom)
+        7    0.000    0.000    0.000    0.000 {built-in method builtins.hash}
+        3    0.000    0.000    0.000    0.000 typing.py:494(__repr__)
+        5    0.000    0.000    0.000    0.000 {method 'isidentifier' of 'str' objects}
+        2    0.000    0.000    0.000    0.000 {method 'gettimeout' of '_socket.socket' objects}
+        5    0.000    0.000    0.000    0.000 __init__.py:429(<genexpr>)
+        2    0.000    0.000    0.000    0.000 threading.py:601(is_set)
+        1    0.000    0.000    0.000    0.000 threading.py:577(Event)
+        3    0.000    0.000    0.000    0.000 {built-in method _thread.get_native_id}
+        4    0.000    0.000    0.000    0.000 {method 'items' of 'mappingproxy' objects}
+       10    0.000    0.000    0.000    0.000 wod_server.py:145(<lambda>)
+       10    0.000    0.000    0.000    0.000 wod_server.py:147(<lambda>)
+        1    0.000    0.000    0.000    0.000 simple_socket.py:45(__init__)
+        1    0.000    0.000    0.000    0.000 selectors.py:60(_SelectorMapping)
+        1    0.000    0.000    0.000    0.000 {method 'discard' of 'set' objects}
+        4    0.000    0.000    0.000    0.000 wod_server.py:53(__init__)
+        1    0.000    0.000    0.000    0.000 wod_server.py:25(MarchingSquares)
+        2    0.000    0.000    0.000    0.000 {built-in method math.log}
+        5    0.000    0.000    0.000    0.000 {method '__contains__' of 'frozenset' objects}
+        2    0.000    0.000    0.000    0.000 {built-in method _socket.getdefaulttimeout}
+        1    0.000    0.000    0.000    0.000 threading.py:445(Semaphore)
+        4    0.000    0.000    0.000    0.000 <frozen abc>:7(abstractmethod)
+        4    0.000    0.000    0.000    0.000 {method 'isascii' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 functools.py:482(lru_cache)
+        1    0.000    0.000    0.000    0.000 wod_server.py:52(Brush)
+        2    0.000    0.000    0.000    0.000 {method 'setter' of 'property' objects}
+        1    0.000    0.000    0.000    0.000 idna.py:154(Codec)
+        1    0.000    0.000    0.000    0.000 threading.py:532(BoundedSemaphore)
+        4    0.000    0.000    0.000    0.000 enum.py:1291(value)
+        5    0.000    0.000    0.000    0.000 enum.py:1410(<lambda>)
+        1    0.000    0.000    0.000    0.000 decoder.py:20(JSONDecodeError)
+        1    0.000    0.000    0.000    0.000 typing.py:295(_check_generic)
+        1    0.000    0.000    0.000    0.000 threading.py:1409(Timer)
+        5    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1014(is_package)
+        2    0.000    0.000    0.000    0.000 {method 'cast' of 'memoryview' objects}
+        1    0.000    0.000    0.000    0.000 threading.py:1460(_DummyThread)
+        1    0.000    0.000    0.000    0.000 wod_server.py:635(Player)
+        1    0.000    0.000    0.000    0.000 idna.py:226(IncrementalEncoder)
+        1    0.000    0.000    0.000    0.000 wod_server.py:617(Troop)
+        1    0.000    0.000    0.000    0.000 wod_server.py:626(City)
+        1    0.000    0.000    0.000    0.000 socket.py:212(_GiveupOnSendfile)
+        1    0.000    0.000    0.000    0.000 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 threading.py:1439(_MainThread)
+        1    0.000    0.000    0.000    0.000 idna.py:261(IncrementalDecoder)
+        1    0.000    0.000    0.000    0.000 {built-in method sys._getframemodulename}
+        1    0.000    0.000    0.000    0.000 {method 'insert' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 threading.py:833(BrokenBarrierError)
+        1    0.000    0.000    0.000    0.000 idna.py:300(StreamWriter)
+        1    0.000    0.000    0.000    0.000 idna.py:303(StreamReader)
