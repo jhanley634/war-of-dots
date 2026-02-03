@@ -1,3 +1,7 @@
+# client profile coming soon
+
+# TODO add instructions to play
+
 # War-of-dots
 DISCLAIMER: All credit goes to the original War of dots (https://warofdots.net/). This is a simple barebones war simulation built in python with pygame.
 
