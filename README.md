@@ -61,13 +61,34 @@ troops and cities paths are controlled by client
 Controls:
 ---------
 Inputs:
-Mouse Left-Click (Hold),     Select/Draw,   Selects a player-owned troop (best) or city (best_city) and initiates path drawing.
-Mouse Right-Click (Hold),    Pan,           Activates camera movement; offsets camx and camy based on mouse displacement.
-Mouse Wheel Up / Button 4,   Zoom In,       Increments zoom_idx and scales the viewport toward the cursor position.
-Mouse Wheel Down / Button 5, Zoom Out,      Decrements zoom_idx and scales the viewport away from the cursor position.
-Space Bar,                   Confirm Path,  Commits current paths and city_paths to player_input for server transmission and clears local path buffers.
-Key: C,                      Clear Paths,   Flushes all pending paths and city_paths without submitting them to the server.
-Key: P,                      Toggle Pause,  Toggles the pause state; interrupts event processing and signals the server to pause/unpause.
+
+Mouse Left-Click (Hold),     
+-
+Select/Draw,   Selects a player-owned troop (best) or city (best_city) and initiates path drawing.
+
+Mouse Right-Click (Hold),    
+-
+Pan,           Activates camera movement; offsets camx and camy based on mouse displacement.
+
+Mouse Wheel Up / Button 4,   
+-
+Zoom In,       Increments zoom_idx and scales the viewport toward the cursor position.
+
+Mouse Wheel Down / Button 5, 
+-
+Zoom Out,      Decrements zoom_idx and scales the viewport away from the cursor position.
+
+Space Bar,                   
+-
+Confirm Path,  Commits current paths and city_paths to player_input for server transmission and clears local path buffers.
+
+Key: C,                      
+-
+Clear Paths,   Flushes all pending paths and city_paths without submitting them to the server.
+
+Key: P,                      
+-
+Toggle Pause,  Toggles the pause state; interrupts event processing and signals the server to pause/unpause.
 
 Strategy:
 ---------
