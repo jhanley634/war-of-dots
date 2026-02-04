@@ -1,5 +1,3 @@
-# client profile coming soon
-
 # TODO add instructions to play
 
 # War-of-dots
