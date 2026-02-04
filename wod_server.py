@@ -120,7 +120,6 @@ class Environment:
 
         self.generate_terrain()
         self.generate_default_vision()
-        # code this:
         # 2 players left and right most cities
         # 3 players left-bottom, top, right-bottom
         # 4 players left-bottom, top-left, top-right, right-bottom
@@ -753,3 +752,4 @@ except ValueError:
     print("Invalid number of players, defaulting to 2")
 game_play = Game()
 game_play.run_game()
+
