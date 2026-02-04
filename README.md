@@ -1,3 +1,4 @@
+will add screenshots within a few days if I get time
 
 # War-of-dots
 DISCLAIMER: All credit goes to the original War of dots (https://warofdots.net/). This is a simple barebones war simulation built in python with pygame.
