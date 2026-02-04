@@ -1,7 +1,15 @@
-# TODO add instructions to play
 
 # War-of-dots
 DISCLAIMER: All credit goes to the original War of dots (https://warofdots.net/). This is a simple barebones war simulation built in python with pygame.
+
+INSTRUCTIONS TO PLAY:
+=====================
+ - start server and enter number of players
+ - enter port, just enter 0, use other numbers when you think other people are playing the game on the same lan/router/network
+ - should say waiting for players, will connect with first `PLAYERS` (number of players you entered) number of clients
+ - start the clients, a pygame window will pop up, ignore that for now that is where you play the game, find the console/command prompt that pops up with it
+ - on each client type in the ip address then the port number you typed in the server (e.g. '0')
+ - start playing by going back to the pygame window, have fun!
 
 DESCRIPTION:
 ============
@@ -103,7 +111,7 @@ Clear Paths,   Flushes all pending paths and city_paths without submitting them 
 
 Key: P,                      
 -
-Toggle Pause,  Toggles the pause state; interrupts event processing and signals the server to pause/unpause.
+Toggle Pause,  Toggles the pause state; interrupts event processing and signals the server to pause/unpause. Requres both players signalling to stop the simulation.
 
 
 
