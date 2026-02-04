@@ -25,10 +25,10 @@ green
 Forest: 
 dark green, speed debuf and attack debuff worst vision
 
-hills: 
+Hills: 
 light grey, speed debuff and attack buff, buffs vision of troop when on
 
-mountains: 
+Mountains: 
 dark grey, can't be traversed
 
 Cities:
