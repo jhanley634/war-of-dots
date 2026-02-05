@@ -1,6 +1,8 @@
 # War-of-dots
 DISCLAIMER: All credit goes to the original War of dots (https://warofdots.net/). This is a simple barebones war simulation built in python with pygame.
 
+Code currently being reviewed here https://codereview.stackexchange.com/questions/301203/war-of-dots-simple-rts-war-game-in-python .
+
 INSTRUCTIONS TO PLAY:
 =====================
  - start server and enter number of players
