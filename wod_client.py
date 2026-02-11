@@ -3,7 +3,18 @@ import json
 import pygame
 
 import simple_socket
-from constants import *
+from constants import (
+    CELL_SIZE,
+    COLORS,
+    COLS,
+    PORTS,
+    ROWS,
+    TABLE,
+    TERRAIN_VALUES,
+    THRESHOLD,
+    WORLD_X,
+    WORLD_Y,
+)
 
 
 def interp(threshold, a, b):
