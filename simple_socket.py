@@ -1,7 +1,7 @@
 import socket
 
 ####### https://docs.python.org/3/library/socket.html#socket.socket.sendfile #######
-#socket.gethostbyname(str(socket.gethostname()))#
+# socket.gethostbyname(str(socket.gethostname()))#
 
 HEADER, FORMAT = 64, "utf-8"
 
@@ -24,7 +24,7 @@ class Client:
         send_length += b" " * (HEADER - len(send_length))
         self.client.sendall(send_length)
         self.client.sendall(message)
-    
+
     def rcv(self):
         msg_length = self.client.recv(HEADER).decode(FORMAT)
         total_received = 0
@@ -36,10 +36,10 @@ class Client:
                 msg.append(data)
             return b"".join(msg).decode(FORMAT)
         return ""
-    
+
     def close(self):
         self.client.close()
-    
+
 
 class Server:
     def __init__(self, ip, port):
@@ -57,13 +57,13 @@ class Server:
             self.server.listen(conns)
         else:
             self.server.listen()
-    
+
     def accept(self):
         conn, addr = self.server.accept()
         conn.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
         self.conns.append(conn)
         return conn, addr
-        
+
     def send(self, conns, msg):
         message = msg.encode(FORMAT)
         msg_length = len(message)
@@ -84,8 +84,7 @@ class Server:
                 msg.append(data)
             return b"".join(msg).decode(FORMAT)
         return ""
-    
+
     def close(self, conn):
         conn.close()
         self.conns.remove(conn)
-

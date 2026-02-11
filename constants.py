@@ -1,14 +1,14 @@
 CELL_SIZE = 20
 SIZE = (1280, 700)
 WORLD_X, WORLD_Y = SIZE
-ROWS = int(SIZE[0]//CELL_SIZE)
-COLS = int(SIZE[1]//CELL_SIZE)
+ROWS = int(SIZE[0] // CELL_SIZE)
+COLS = int(SIZE[1] // CELL_SIZE)
 TERRAIN_VALUES = {
-            "water": -0.1,
-            "plains": 0.1,
-            "hill": 0.7,
-            "mountain": 0.83,
-        }
+    "water": -0.1,
+    "plains": 0.1,
+    "hill": 0.7,
+    "mountain": 0.83,
+}
 TROOP_R = 7
 THRESHOLD = 0.5
 PLAYERS = 2
