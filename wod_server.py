@@ -706,7 +706,7 @@ class Game:
             else:
                 self.server.send([conn], draw_info)
             player_in = json.loads(self.server.rcv(conn))
-            if player_in == "close" or self.done == True:
+            if player_in == "close" or self.done:
                 self.done = True
                 self.server.close(conn)
                 print("player: ", player_number, " left")
