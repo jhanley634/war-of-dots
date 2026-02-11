@@ -1,0 +1,33 @@
+[project]
+name = "war-of-dots"
+version = "0.0.1"
+requires-python = ">=3.13.8,<3.14"
+
+dependencies = [
+    "perlin-noise>=1.14",
+    "pygame>=2.0.1",
+]
+
+[dependency-groups]
+dev = [
+    "black>=26.1.0",
+    "isort>=7.0.0",
+    "mypy>=1.19.1",
+    "pre-commit>=4.5.1",
+    "pyright >= 1.1.408",
+    "pytest>=9.0.2",
+]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[tool.isort]
+include_trailing_comma =  true
+multi_line_output = "VERTICAL_HANGING_INDENT"
+line_length = 100
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
