@@ -362,7 +362,7 @@ class Environment:
                     self.city_vision_brush.apply(player.vision, city.position, 0)
                     self.city_border_brush.apply(player.border, city.position, 1.0)
             for other_player in self.players:
-                if not player is other_player:
+                if player is not other_player:
                     for city in self.cities:
                         if city.owner is other_player:
                             self.city_border_brush.apply(player.border, city.position, 0.0)
@@ -470,7 +470,7 @@ class Environment:
                     hit_enemy = False
 
                     for other_player in self.players:
-                        if not player is other_player:
+                        if player is not other_player:
                             self.border_brush.apply(other_player.border, troop.position, 0.0)
                             for other_t in other_player.troops:
                                 other_x, other_y = other_t.position
@@ -529,7 +529,7 @@ class Environment:
                     hit_enemy = False
 
                     for other_player in self.players:
-                        if not player is other_player:
+                        if player is not other_player:
                             self.border_brush.apply(other_player.border, troop.position, 0.0)
                             for other_t in other_player.troops:
                                 other_x, other_y = other_t.position
