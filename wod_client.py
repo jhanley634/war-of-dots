@@ -1,6 +1,8 @@
-import simple_socket
-import pygame
 import json
+
+import pygame
+
+import simple_socket
 from constants import *
 
 

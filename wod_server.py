@@ -1,11 +1,13 @@
 import json
-import perlin_noise
 import math
-import simple_socket
-import socket
-import time
-import threading
 import random
+import socket
+import threading
+import time
+
+import perlin_noise
+
+import simple_socket
 from constants import *
 
 
