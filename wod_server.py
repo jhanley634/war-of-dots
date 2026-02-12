@@ -739,7 +739,7 @@ class Game:
         self.ready = True
 
 
-def main(players: int = 2) -> None:
+def main() -> None:
     game_play = Game()
     game_play.run_game()
 
