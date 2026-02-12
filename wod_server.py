@@ -29,10 +29,10 @@ def dir_dis_to_xy(direction, distance):
     )
 
 
-def xy_to_dir_dis(xy):  # is this the same as "xy[0] ** 2 + xy[1] ** 2" ?
+def xy_to_dir_dis(xy):
     return (
         math.degrees(math.atan2(xy[1], xy[0])),
-        math.sqrt((0 - xy[0]) ** 2 + (0 - xy[1]) ** 2),
+        math.sqrt(xy[0] ** 2 + xy[1] ** 2),
     )
 
 
