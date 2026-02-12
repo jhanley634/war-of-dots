@@ -740,7 +740,6 @@ class Game:
 
 
 def main(players: int = 2) -> None:
-    PLAYERS = players
     game_play = Game()
     game_play.run_game()
 
