@@ -30,9 +30,10 @@ def dir_dis_to_xy(direction, distance):
 
 
 def xy_to_dir_dis(xy):
+    x, y = xy
     return (
-        math.degrees(math.atan2(xy[1], xy[0])),
-        math.sqrt(xy[0] ** 2 + xy[1] ** 2),
+        math.degrees(math.atan2(y, x)),
+        math.sqrt(x**2 + y**2),
     )
 
 
