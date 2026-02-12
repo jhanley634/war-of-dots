@@ -1,12 +1,25 @@
 import json
-import perlin_noise
 import math
-import simple_socket
-import socket
-import time
-import threading
 import random
-from constants import *
+import socket
+import threading
+import time
+
+import perlin_noise
+
+import simple_socket
+from constants import (
+    CELL_SIZE,
+    COLORS,
+    COLS,
+    PLAYERS,
+    PORTS,
+    ROWS,
+    TERRAIN_VALUES,
+    THRESHOLD,
+    WORLD_X,
+    WORLD_Y,
+)
 
 
 def dir_dis_to_xy(direction, distance):
@@ -17,8 +30,9 @@ def dir_dis_to_xy(direction, distance):
 
 
 def xy_to_dir_dis(xy):  # is this the same as "xy[0] ** 2 + xy[1] ** 2" ?
-    return math.degrees(math.atan2(xy[1], xy[0])), math.sqrt(
-        (0 - xy[0]) ** 2 + (0 - xy[1]) ** 2
+    return (
+        math.degrees(math.atan2(xy[1], xy[0])),
+        math.sqrt((0 - xy[0]) ** 2 + (0 - xy[1]) ** 2),
     )
 
 
@@ -40,13 +54,14 @@ class MarchingSquares:
         p12 = self.grid[x1][y2]
         p22 = self.grid[x2][y2]
 
-        val = (
+        #fmt: off
+        return (
             p11 * (1 - dx) * (1 - dy)
             + p21 * dx * (1 - dy)
             + p12 * (1 - dx) * dy
             + p22 * dx * dy
         )
-        return val
+        #fmt: on
 
 
 class Brush:
@@ -129,18 +144,14 @@ class Environment:
         top_left_city = min(self.cities, key=lambda c: c.position[0] - c.position[1])
         middle_top_city = min(
             self.cities,
-            key=lambda c: (abs(c.position[0] - (ROWS * CELL_SIZE) / 2) * 1.5)
-            + c.position[1],
+            key=lambda c: (abs(c.position[0] - (ROWS * CELL_SIZE) / 2) * 1.5) + c.position[1],
         )
         middle_bottom_city = max(
             self.cities,
-            key=lambda c: c.position[1]
-            - (abs(c.position[0] - (ROWS * CELL_SIZE) / 2) * 1.5),
+            key=lambda c: c.position[1] - (abs(c.position[0] - (ROWS * CELL_SIZE) / 2) * 1.5),
         )
         top_right_city = max(self.cities, key=lambda c: c.position[0] - c.position[1])
-        right_bottom_city = max(
-            self.cities, key=lambda c: c.position[0] + c.position[1]
-        )
+        right_bottom_city = max(self.cities, key=lambda c: c.position[0] + c.position[1])
         left_city = min(self.cities, key=lambda c: c.position[0])
         right_city = max(self.cities, key=lambda c: c.position[0])
         top_city = max(self.cities, key=lambda c: c.position[1])
@@ -236,9 +247,7 @@ class Environment:
                 plains_diff = max(0, (TERRAIN_VALUES["plains"] + 0.1) - terrain_value)
                 hill_diff = max(0, terrain_value - (TERRAIN_VALUES["hill"] - 0.1))
 
-                self.forest_marching.grid[x][y] = (
-                    value - (plains_diff * 10)
-                ) - hill_diff * 10
+                self.forest_marching.grid[x][y] = (value - (plains_diff * 10)) - hill_diff * 10
 
         def within_edges(cx, cy):
             edge_margin = int(1)
@@ -262,8 +271,7 @@ class Environment:
                     and terrain_value < TERRAIN_VALUES["hill"]
                 )
                 and all(
-                    abs(cx * CELL_SIZE - city.position[0])
-                    + abs(cy * CELL_SIZE - city.position[1])
+                    abs(cx * CELL_SIZE - city.position[0]) + abs(cy * CELL_SIZE - city.position[1])
                     >= CELL_SIZE * distance
                     for city in self.cities
                 )
@@ -355,12 +363,10 @@ class Environment:
                     self.city_vision_brush.apply(player.vision, city.position, 0)
                     self.city_border_brush.apply(player.border, city.position, 1.0)
             for other_player in self.players:
-                if not player is other_player:
+                if player is not other_player:
                     for city in self.cities:
                         if city.owner is other_player:
-                            self.city_border_brush.apply(
-                                player.border, city.position, 0.0
-                            )
+                            self.city_border_brush.apply(player.border, city.position, 0.0)
             to_remove = []
             for troop in player.troops:
                 if troop.health <= 0:
@@ -377,16 +383,13 @@ class Environment:
                 if owned:
                     closest_city = min(
                         owned,
-                        key=lambda x: xy_to_dir_dis(
-                            ((old_pos[0] - x[0]), (old_pos[1] - x[1]))
-                        ),
+                        key=lambda x: xy_to_dir_dis(((old_pos[0] - x[0]), (old_pos[1] - x[1]))),
                     )
                     city_dir, city_dist = xy_to_dir_dis(
                         ((old_pos[0] - closest_city[0]), (old_pos[1] - closest_city[1]))
                     )
                     sample_points = [
-                        dir_dis_to_xy(city_dir, dist * 20)
-                        for dist in range(int(city_dist // 20))
+                        dir_dis_to_xy(city_dir, dist * 20) for dist in range(int(city_dist // 20))
                     ]
                     border_avg = 0
                     if sample_points:
@@ -428,12 +431,18 @@ class Environment:
 
                     terrain_speed = self.terrain_speeds[on_terrain]
                     dir, distance = xy_to_dir_dis(
-                        (target[0] - old_pos[0], target[1] - old_pos[1])
+                        (
+                            target[0] - old_pos[0],
+                            target[1] - old_pos[1],
+                        )
                     )
                     distance = terrain_speed * 0.1
                     new_off_x, new_off_y = dir_dis_to_xy(dir, distance)
 
-                    new_pos = (old_pos[0] + new_off_x, old_pos[1] + new_off_y)
+                    new_pos = (
+                        old_pos[0] + new_off_x,
+                        old_pos[1] + new_off_y,
+                    )
 
                     for other_t in player.troops:
                         if other_t == troop:
@@ -462,10 +471,8 @@ class Environment:
                     hit_enemy = False
 
                     for other_player in self.players:
-                        if not player is other_player:
-                            self.border_brush.apply(
-                                other_player.border, troop.position, 0.0
-                            )
+                        if player is not other_player:
+                            self.border_brush.apply(other_player.border, troop.position, 0.0)
                             for other_t in other_player.troops:
                                 other_x, other_y = other_t.position
                                 off_x, off_y = (
@@ -484,11 +491,7 @@ class Environment:
                         or (new_pos[1] > WORLD_Y)
                         or (new_pos[1] < 0)
                     )
-                    if (
-                        (not new_terrain == "mountain")
-                        and not hit_enemy
-                        and not out_of_world
-                    ):
+                    if (not new_terrain == "mountain") and not hit_enemy and not out_of_world:
                         troop.position = new_pos
                         on_terrain = new_terrain
 
@@ -527,10 +530,8 @@ class Environment:
                     hit_enemy = False
 
                     for other_player in self.players:
-                        if not player is other_player:
-                            self.border_brush.apply(
-                                other_player.border, troop.position, 0.0
-                            )
+                        if player is not other_player:
+                            self.border_brush.apply(other_player.border, troop.position, 0.0)
                             for other_t in other_player.troops:
                                 other_x, other_y = other_t.position
                                 off_x, off_y = (
@@ -549,11 +550,7 @@ class Environment:
                         or (new_pos[1] > WORLD_Y)
                         or (new_pos[1] < 0)
                     )
-                    if (
-                        (not new_terrain == "mountain")
-                        and not hit_enemy
-                        and not out_of_world
-                    ):
+                    if (not new_terrain == "mountain") and not hit_enemy and not out_of_world:
                         troop.position = new_pos
                         on_terrain = new_terrain
 
@@ -647,9 +644,7 @@ class Game:
         self.last_time = time.perf_counter()
         self.frame_time = 1 / self.FPS
         self.done = False
-        self.server = simple_socket.Server(
-            socket.gethostbyname(str(socket.gethostname())), 1200
-        )
+        self.server = simple_socket.Server(socket.gethostbyname(str(socket.gethostname())), 1200)
         self.environment = Environment()
         self.player_inputs = [[] for i in range(PLAYERS)]
         self.player_city_inputs = [[] for i in range(PLAYERS)]
@@ -712,7 +707,7 @@ class Game:
             else:
                 self.server.send([conn], draw_info)
             player_in = json.loads(self.server.rcv(conn))
-            if player_in == "close" or self.done == True:
+            if player_in == "close" or self.done:
                 self.done = True
                 self.server.close(conn)
                 print("player: ", player_number, " left")
@@ -743,13 +738,17 @@ class Game:
         self.ready = True
 
 
-try:
-    PLAYERS = int(input("Enter number of players (2-6): "))
-    if PLAYERS < 2 or PLAYERS > 6:
+def main() -> None:
+    try:
+        PLAYERS = int(input("Enter number of players (2-6): "))
+        if PLAYERS < 2 or PLAYERS > 6:
+            print("Invalid number of players, defaulting to 2")
+            PLAYERS = 2
+    except ValueError:
         print("Invalid number of players, defaulting to 2")
-        PLAYERS = 2
-except ValueError:
-    print("Invalid number of players, defaulting to 2")
-game_play = Game()
-game_play.run_game()
+    game_play = Game()
+    game_play.run_game()
 
+
+if __name__ == "__main__":
+    main()

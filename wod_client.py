@@ -1,7 +1,20 @@
-import simple_socket
-import pygame
 import json
-from constants import *
+
+import pygame
+
+import simple_socket
+from constants import (
+    CELL_SIZE,
+    COLORS,
+    COLS,
+    PORTS,
+    ROWS,
+    TABLE,
+    TERRAIN_VALUES,
+    THRESHOLD,
+    WORLD_X,
+    WORLD_Y,
+)
 
 
 def interp(threshold, a, b):
@@ -9,6 +22,7 @@ def interp(threshold, a, b):
         return 0.5
     t = (threshold - a) / (b - a)
     return max(0.0, min(1.0, t))
+
 
 def marching_squares(grid, cell_size, rows, cols, threshold):
     segments = []
@@ -24,7 +38,7 @@ def marching_squares(grid, cell_size, rows, cols, threshold):
             p_right = interp(threshold, c1, c2)
             p_bottom = interp(threshold, c3, c2)
             p_left = interp(threshold, c0, c3)
-            
+
             x = j * cs
             y = i * cs
             p0 = (x + p_top * cs, y)
@@ -74,6 +88,7 @@ def marching_squares(grid, cell_size, rows, cols, threshold):
                 segments.append((p3, p0))
     return segments
 
+
 def marching_squares_poly(grid, cell_size, rows, cols, threshold):
     polys = []
     cs = cell_size
@@ -88,7 +103,7 @@ def marching_squares_poly(grid, cell_size, rows, cols, threshold):
 
             row_pos = i * cs
             col_pos = j * cs
-            
+
             v0 = (row_pos, col_pos)
             v1 = (row_pos, col_pos + cs)
             v2 = (row_pos + cs, col_pos + cs)
@@ -101,10 +116,14 @@ def marching_squares_poly(grid, cell_size, rows, cols, threshold):
 
             inside = [c0 > thr, c1 > thr, c2 > thr, c3 > thr]
             idx = 0
-            if inside[0]: idx |= 1
-            if inside[1]: idx |= 2
-            if inside[2]: idx |= 4
-            if inside[3]: idx |= 8
+            if inside[0]:
+                idx |= 1
+            if inside[1]:
+                idx |= 2
+            if inside[2]:
+                idx |= 4
+            if inside[3]:
+                idx |= 8
 
             if idx == 0:
                 continue
@@ -113,8 +132,14 @@ def marching_squares_poly(grid, cell_size, rows, cols, threshold):
                 continue
 
             pts = {
-                "v0": v0, "v1": v1, "v2": v2, "v3": v3,
-                "p_top": p_top, "p_right": p_right, "p_bottom": p_bottom, "p_left": p_left,
+                "v0": v0,
+                "v1": v1,
+                "v2": v2,
+                "v3": v3,
+                "p_top": p_top,
+                "p_right": p_right,
+                "p_bottom": p_bottom,
+                "p_left": p_left,
             }
 
             specs = TABLE.get(idx, [])
@@ -122,12 +147,15 @@ def marching_squares_poly(grid, cell_size, rows, cols, threshold):
                 poly = [pts[name] for name in spec]
                 compact = []
                 for p in poly:
-                    if not compact or (abs(p[0] - compact[-1][0]) > 1e-9 or abs(p[1] - compact[-1][1]) > 1e-9):
+                    if not compact or (
+                        abs(p[0] - compact[-1][0]) > 1e-9 or abs(p[1] - compact[-1][1]) > 1e-9
+                    ):
                         compact.append(p)
                 if len(compact) >= 3:
                     polys.append(compact)
 
     return polys
+
 
 def marching_squares_layers(grid, cell_size, rows, cols, thresholds):
     layers = []
@@ -136,6 +164,7 @@ def marching_squares_layers(grid, cell_size, rows, cols, thresholds):
         polys = marching_squares_poly(grid, cell_size, rows, cols, threshold)
         layers.append(polys)
     return layers
+
 
 class Game:
     def __init__(self, title):
@@ -179,7 +208,6 @@ class Game:
 
         self.pause = False
 
-
         self.terrain_by_zoom = {}
 
     def run_game(self):
@@ -192,7 +220,9 @@ class Game:
         print("drawing terrain...")
         terrain_grid, forrest_grid, cities, self.player_num = json.loads(self.client.rcv())
         self.color = COLORS[self.player_num]
-        layers = marching_squares_layers(terrain_grid, CELL_SIZE, ROWS, COLS, list(TERRAIN_VALUES.values()))
+        layers = marching_squares_layers(
+            terrain_grid, CELL_SIZE, ROWS, COLS, list(TERRAIN_VALUES.values())
+        )
         layers.append(marching_squares_poly(forrest_grid, CELL_SIZE, ROWS, COLS, THRESHOLD))
 
         for i in range(len(self.zoom_levels)):
@@ -371,8 +401,10 @@ class Game:
                         self.city_paths = []
 
                     elif e.key == pygame.K_SPACE:
-                        if (not self.drawing_path and not self.drawing_city_path) and (self.paths or self.city_paths):
-                            for id, path  in self.paths:
+                        if (not self.drawing_path and not self.drawing_city_path) and (
+                            self.paths or self.city_paths
+                        ):
+                            for id, path in self.paths:
                                 path.pop(0)
                             for id, path in self.city_paths:
                                 path.pop(0)
@@ -392,7 +424,6 @@ class Game:
                     if e.key == pygame.K_p:
                         self.player_input = "unpause"
                         self.pause = False
-
 
         self.client.send(json.dumps(self.player_input, separators=(",", ":")))
         self.player_input = [[], []]
@@ -436,9 +467,7 @@ class Game:
 
     def draw(self):
         self.screen.fill((255, 255, 255))
-        vision_grid, border_grid, troops, cities = self.draw_info = json.loads(
-            self.client.rcv()
-        )
+        vision_grid, border_grid, troops, cities = self.draw_info = json.loads(self.client.rcv())
 
         z = self.zoom
 
@@ -475,13 +504,14 @@ class Game:
 
         for path in paths_to_draw:
             for i, pos in enumerate(path):
-                if not i == (len(path)-1):
+                if not i == (len(path) - 1):
                     px = int(pos[0] * z)
                     py = int(pos[1] * z)
-                    px2 = int(path[i+1][0] * z)
-                    py2 = int(path[i+1][1] * z)
-                    pygame.draw.line(dynamic, (240, 180, 0), (px, py), (px2, py2), max(1, int(4 * z)))
-
+                    px2 = int(path[i + 1][0] * z)
+                    py2 = int(path[i + 1][1] * z)
+                    pygame.draw.line(
+                        dynamic, (240, 180, 0), (px, py), (px2, py2), max(1, int(4 * z))
+                    )
 
         paths_to_draw = []
         tids = [tid for tid, path in self.paths]
@@ -494,38 +524,46 @@ class Game:
             if tid in tids:
                 factor = 0.5
                 rgb = [max(0, min(255, int(x * factor))) for x in color]
-            if path and owner == self.player_num: 
+            if path and owner == self.player_num:
                 path.insert(0, pos)
                 paths_to_draw.append(path)
-            pygame.draw.rect(dynamic, (0, 255, 0), pygame.rect.Rect(px-r, (py-r)-max(1, int(3 * z)), (r*2)*(health/100), max(1, int(3 * z))))
+            pygame.draw.rect(
+                dynamic,
+                (0, 255, 0),
+                pygame.rect.Rect(
+                    px - r,
+                    (py - r) - max(1, int(3 * z)),
+                    (r * 2) * (health / 100),
+                    max(1, int(3 * z)),
+                ),
+            )
             pygame.draw.circle(dynamic, rgb, (px, py), r)
-        
+
         for path in paths_to_draw:
             for i, pos in enumerate(path):
-                if not i == (len(path)-1):
+                if not i == (len(path) - 1):
                     px = int(pos[0] * z)
                     py = int(pos[1] * z)
-                    px2 = int(path[i+1][0] * z)
-                    py2 = int(path[i+1][1] * z)
+                    px2 = int(path[i + 1][0] * z)
+                    py2 = int(path[i + 1][1] * z)
                     pygame.draw.line(dynamic, self.color, (px, py), (px2, py2), max(1, int(2 * z)))
 
         for tid, path in self.paths:
             for i, pos in enumerate(path):
-                if not i == (len(path)-1):
+                if not i == (len(path) - 1):
                     px = int(pos[0] * z)
                     py = int(pos[1] * z)
-                    px2 = int(path[i+1][0] * z)
-                    py2 = int(path[i+1][1] * z)
+                    px2 = int(path[i + 1][0] * z)
+                    py2 = int(path[i + 1][1] * z)
                     pygame.draw.line(dynamic, (0, 0, 0), (px, py), (px2, py2), max(1, int(2 * z)))
         for tid, path in self.city_paths:
             for i, pos in enumerate(path):
-                if not i == (len(path)-1):
+                if not i == (len(path) - 1):
                     px = int(pos[0] * z)
                     py = int(pos[1] * z)
-                    px2 = int(path[i+1][0] * z)
-                    py2 = int(path[i+1][1] * z)
+                    px2 = int(path[i + 1][0] * z)
+                    py2 = int(path[i + 1][1] * z)
                     pygame.draw.line(dynamic, (0, 0, 0), (px, py), (px2, py2), max(1, int(2 * z)))
-
 
         for a, b in marching_squares(border_grid, CELL_SIZE, ROWS, COLS, THRESHOLD):
             ax = int(a[0] * z)
