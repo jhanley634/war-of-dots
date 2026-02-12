@@ -739,14 +739,8 @@ class Game:
         self.ready = True
 
 
-def main() -> None:
-    try:
-        PLAYERS = int(input("Enter number of players (2-6): "))
-        if PLAYERS < 2 or PLAYERS > 6:
-            print("Invalid number of players, defaulting to 2")
-            PLAYERS = 2
-    except ValueError:
-        print("Invalid number of players, defaulting to 2")
+def main(players: int = 2) -> None:
+    PLAYERS = players
     game_play = Game()
     game_play.run_game()
 
