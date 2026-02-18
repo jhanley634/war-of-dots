@@ -1,17 +1,20 @@
 import unittest
 
+import numpy as np
+
 from constants import CELL_SIZE
 from wod_server import Environment, MarchingSquares, City
 from unittest.mock import patch, MagicMock
 
+albany = City((3 * CELL_SIZE, 4 * CELL_SIZE))
+boston = City((5 * CELL_SIZE, 6 * CELL_SIZE))
+
 
 def gen_terrain(env: Environment) -> None:
-    albany = City((3 * CELL_SIZE, 4 * CELL_SIZE))
-    boston = City((5 * CELL_SIZE, 6 * CELL_SIZE))
     env.cities += [albany, boston]
 
 
-class Test(unittest.TestCase):
+class MarchingSquaresTest(unittest.TestCase):
 
     def test_get_grid_value(self) -> None:
         ms = MarchingSquares()
@@ -44,15 +47,16 @@ class Test(unittest.TestCase):
         self.assertAlmostEqual(0.65, v[0][0])
 
     def _check_draw(self, env: Environment) -> None:
-        di = env.draw_info(player=0)
+        # We really should be getting back a DrawInfo @dataclass here.
+        di = env.draw_info(player=0)  # vision_grid, border_grid, troops, cities
         self.assertEqual([], di[2])
         red, blue = 0, 1
         self.assertEqual(
-            ((255, 0, 0), (60, 80)),
+            ((255, 0, 0), albany.position),  # (60, 80)
             di[3][red][:2],
         )
         self.assertEqual(
-            ((0, 0, 255), (100, 120)),
+            ((0, 0, 255), boston.position),
             di[3][blue][:2],
         )
 
@@ -69,3 +73,30 @@ class Test(unittest.TestCase):
         self._check_marching(env)
         self._check_vision(env)
         self._check_draw(env)
+
+    @patch.object(Environment, "generate_terrain", autospec=True)
+    def test_brush_apply(self, mock_generate_terrain: MagicMock, verbose: bool = False) -> None:
+        mock_generate_terrain.side_effect = gen_terrain
+
+        env = self._gen_environment()
+        br = env.city_vision_brush
+        self.assertEqual(175, br.radius)
+        self.assertEqual(1, br.strength)
+        br.strength *= 1.5  # This conveniently saturates result values to 1.0.
+
+        ter = env.terrain_marching
+        old = np.array(ter.grid)
+
+        br.apply(ter, albany.position, 42.0)
+
+        new = np.array(ter.grid)
+        self.assertFalse(np.array_equal(old, new))
+        if verbose:
+            np.set_printoptions(threshold=2400)
+            print(f"\n{old[3:5]}\n")
+            new[3, 0] = 0.99  # Arranges for consistent {old, new} column spacing
+            print(new[3:13])
+        self.assertEqual(13.0, round(sum(new[3, :])))
+        self.assertEqual(10.0, sum(new[10, :]))
+        self.assertEqual(7.0, sum(new[11, :]))
+        self.assertEqual(0.0, sum(new[12, :]))
