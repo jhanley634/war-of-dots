@@ -3,15 +3,23 @@ import unittest
 import numpy as np
 
 from constants import CELL_SIZE
-from wod_server import Environment, MarchingSquares, City
-from unittest.mock import patch, MagicMock
+from wod_server import City, Environment, MarchingSquares
 
 albany = City((3 * CELL_SIZE, 4 * CELL_SIZE))
 boston = City((5 * CELL_SIZE, 6 * CELL_SIZE))
 
 
-def gen_terrain(env: Environment) -> None:
-    env.cities += [albany, boston]
+class DeterministicEnvironment(Environment):
+    def generate_terrain(self) -> None:
+
+        self.cities += [albany, boston]
+        f = self.forest_marching
+        f.grid[3][4] = 0.92
+        f.grid[4][4] = 0.96
+        t = self.terrain_marching
+        t.grid[3][4] = 0.91
+        t.grid[4][4] = 0.95
+        self.generate_default_vision()
 
 
 class MarchingSquaresTest(unittest.TestCase):
@@ -19,18 +27,7 @@ class MarchingSquaresTest(unittest.TestCase):
     def test_get_grid_value(self) -> None:
         ms = MarchingSquares()
         self.assertAlmostEqual(0.0, ms.get_grid_value(5.0, 6.0))
-
-    @staticmethod
-    def _gen_environment() -> Environment:
-        env = Environment()
-        f = env.forest_marching
-        f.grid[3][4] = 0.92
-        f.grid[4][4] = 0.96
-        t = env.terrain_marching
-        t.grid[3][4] = 0.91
-        t.grid[4][4] = 0.95
-        env.generate_default_vision()
-        return env
+        self.assertAlmostEqual(0.0, ms.get_grid_value(5.2, 6.2))
 
     def _check_marching(self, env: Environment) -> None:
         self.assertAlmostEqual(0.7424, env.forest_marching.get_grid_value(3.2, 4.2))
@@ -60,13 +57,9 @@ class MarchingSquaresTest(unittest.TestCase):
             di[3][blue][:2],
         )
 
-    @patch.object(Environment, "generate_terrain", autospec=True)
-    def test_environment(self, mock_generate_terrain: MagicMock) -> None:
-        # The Environment constructor calls self.generate_terrain(), which is random.
-        # I need to mock it out, so we instead call a no-op function.
-        mock_generate_terrain.side_effect = gen_terrain
+    def test_environment(self) -> None:
 
-        env = self._gen_environment()
+        env = DeterministicEnvironment()
         self.assertEqual(2, len(env.cities))
         self.assertEqual((60, 80), env.cities[0].position)
 
@@ -74,11 +67,9 @@ class MarchingSquaresTest(unittest.TestCase):
         self._check_vision(env)
         self._check_draw(env)
 
-    @patch.object(Environment, "generate_terrain", autospec=True)
-    def test_brush_apply(self, mock_generate_terrain: MagicMock, verbose: bool = False) -> None:
-        mock_generate_terrain.side_effect = gen_terrain
+    def test_brush_apply(self, verbose: bool = False) -> None:
 
-        env = self._gen_environment()
+        env = DeterministicEnvironment()
         br = env.city_vision_brush
         self.assertEqual(175, br.radius)
         self.assertEqual(1, br.strength)
