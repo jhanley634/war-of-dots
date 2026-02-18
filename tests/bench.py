@@ -3,7 +3,7 @@
 
 from time import time
 from constants import PLAYERS
-from tests.marching_squares_test import DeterministicEnvironment, albany
+from tests.marching_squares_test import DeterministicEnvironment, albany, boston
 from wod_server import Environment, Game, Troop
 
 
@@ -27,23 +27,28 @@ class BenchmarkGame(Game):
 
 def add_troops(env: Environment, num_troops: int = 40) -> Environment:
     for i, city in enumerate(env.cities):  # We assume 2 cities and 2 players.
+        x, y = city.position
         player = env.players[i]
         for _ in range(num_troops):
-            player.troops.append(Troop(city.position, player))
+            player.troops.append(Troop((x + 2 * i, y + i), player))
 
     return env
 
 
-def main(num_update_cycles: int = 1_000) -> None:
+def bench(num_update_cycles: int = 1_000) -> None:
     game = BenchmarkGame()
     game.environment = add_troops(DeterministicEnvironment())
+    brush = game.environment.city_vision_brush
+    ter = game.environment.terrain_marching
 
     t0 = time()
     for _ in range(num_update_cycles):
         game.game_logic()
+        brush.apply(ter, albany.position, 42.0)
+        brush.apply(ter, boston.position, 42.0)
     elapsed = round(time() - t0, 3)
     print(f"{elapsed=} seconds")
 
 
 if __name__ == "__main__":
-    main()
+    bench()
