@@ -21,6 +21,7 @@ class BenchmarkGame(Game):
                 paths_to_apply.extend(self.player_inputs[p_num])
         self.player_inputs = [[] for i in range(PLAYERS)]
         self.ready = False
+        assert len(paths_to_apply) == 0
         self.environment.update_troops(paths_to_apply)
         self.ready = True
 
@@ -28,6 +29,7 @@ class BenchmarkGame(Game):
 def add_troops(env: Environment, num_troops: int = 40) -> Environment:
     for i, city in enumerate(env.cities):  # We assume 2 cities and 2 players.
         x, y = city.position
+        assert 4 == len(env.draw_info(player=i))
         player = env.players[i]
         for _ in range(num_troops):
             player.troops.append(Troop((x + 2 * i, y + i), player))
