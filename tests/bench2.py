@@ -17,7 +17,9 @@ def manhattan_distance(position: tuple[float, float]) -> float:
 
 def xy_is_within(thresh_distance, xy) -> tuple[bool, float, float]:
     """In the common case, returns 'not within threshold' with no sqrt() calls."""
-    if manhattan_distance(xy) > thresh_distance:
+
+    # if manhattan_distance(xy) >= thresh_distance:
+    if abs(xy[0]) + abs(xy[1]) >= thresh_distance:
         return False, 0.0, float("inf")
     direc, dist = xy_to_dir_dis(xy)
     return dist < thresh_distance, direc, dist
@@ -242,8 +244,8 @@ class DeterministicEnvironment2(DeterministicEnvironment):
                 for i, city in enumerate(self.cities):
                     cx, cy = city.position
                     tx, ty = troop.position
-                    dir, dist = xy_to_dir_dis((tx - cx, ty - cy))
-                    if dist < 15:
+                    is_within, dir, dist = xy_is_within(15, (tx - cx, ty - cy))
+                    if is_within:
                         self.players_in_cities[i].append(player)
                         break
             to_remove.reverse()
