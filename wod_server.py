@@ -29,10 +29,11 @@ def dir_dis_to_xy(direction, distance):
     )
 
 
-def xy_to_dir_dis(xy):  # is this the same as "xy[0] ** 2 + xy[1] ** 2" ?
+def xy_to_dir_dis(xy):
+    x, y = xy
     return (
-        math.degrees(math.atan2(xy[1], xy[0])),
-        math.sqrt((0 - xy[0]) ** 2 + (0 - xy[1]) ** 2),
+        math.degrees(math.atan2(y, x)),
+        math.sqrt(x**2 + y**2),
     )
 
 
@@ -739,13 +740,6 @@ class Game:
 
 
 def main() -> None:
-    try:
-        PLAYERS = int(input("Enter number of players (2-6): "))
-        if PLAYERS < 2 or PLAYERS > 6:
-            print("Invalid number of players, defaulting to 2")
-            PLAYERS = 2
-    except ValueError:
-        print("Invalid number of players, defaulting to 2")
     game_play = Game()
     game_play.run_game()
 
